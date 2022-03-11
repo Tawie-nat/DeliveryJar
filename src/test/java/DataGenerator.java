@@ -11,7 +11,7 @@ import java.util.Random;
 public class DataGenerator {
     public static Faker faker = new Faker(new Locale("ru"));
 
-    public static String getData() {
+    public static String getDate() {
         Random random = new Random();
         int randomDay = 3 + random.nextInt(362);
         return LocalDate.now().plusDays(randomDay).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));

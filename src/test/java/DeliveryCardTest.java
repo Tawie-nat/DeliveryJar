@@ -13,9 +13,10 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class DeliveryCardTest {
     private static Faker faker;
@@ -39,19 +40,33 @@ public class DeliveryCardTest {
 
     @Test
     public void shouldSendFormToCard() {
-        $("[data-test-id='city'] input").setValue(DataGenerator.getCity());
-        $(".menu-item").shouldBe(Condition.appear, Duration.ofSeconds(5)).click();
-        String date = DataGenerator.getData();
-        $("[data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        $("[data-test-id='date'] input").setValue(date);
-        $("[data-test-id='name'] input").setValue(DataGenerator.getName());
-        $("[data-test-id='phone'] input").setValue(DataGenerator.getPhone());
-        $("span.checkbox__box").click();
-        $(withText("Забронировать")).click();
-        $(withText("Успешно!")).shouldBe(Condition.visible, Duration.ofSeconds(15));
-        $(".notification__content").shouldHave(Condition.text("Встреча успешно забронирована на " + DataGenerator.getData()));
-        $("[placeholder='Дата встречи']").doubleClick().sendKeys(Keys.BACK_SPACE);
-        $("[data-test-id='date'] input").setValue(DataGenerator.getData());
-        $(withText("Забронировать")).click();
+        $("[data-test-id=city] input").setValue(DataGenerator.getCity());
+
+        $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE);
+        String date1 = DataGenerator.getDate();
+        $("[data-test-id=date] input").setValue(date1);
+
+        $("[data-test-id=name] input").setValue(DataGenerator.getName());
+
+        $("[data-test-id=phone] input").setValue(DataGenerator.getPhone());
+
+        $("[data-test-id=agreement]").click();
+
+        $("[type='button'] [class=button__text]").click();
+
+        $(".notification__content").shouldHave(text("Встреча успешно запланирована на " + date1),Duration.ofSeconds(5));
+
+        $("[data-test-id=date] input").doubleClick().sendKeys(Keys.BACK_SPACE);
+        String date2 = DataGenerator.getDate();
+        $("[data-test-id=date] input").setValue(date2);
+
+        $("[type='button'] [class=button__text]").click();
+
+        $("[data-test-id='replan-notification'] [class='notification__content']").shouldBe(visible, Duration.ofSeconds(20)).shouldHave(text("У вас уже запланирована встреча на другую дату. Перепланировать?"));
+        $("[data-test-id='replan-notification'] [class=button__text]").shouldHave(text("Перепланировать")).click();
+        $(".notification__content").shouldHave(text("Встреча успешно запланирована на " + date2),Duration.ofSeconds(5));
+        $(withText(date2)).shouldBe(appear);
+
+
     }
 }

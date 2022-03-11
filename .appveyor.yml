@@ -9,7 +9,7 @@ branches:
 build: off  # будем использовать свой скрипт сборки
 
 install:
-  - java -jar ./artifacts/app-card-delivery-plane.jar &
+  - java -jar ./artifacts/app-card-delivery.jar
 
 build_script:
   - chmod +x gradlew

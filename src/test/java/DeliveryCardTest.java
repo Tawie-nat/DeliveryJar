@@ -63,7 +63,7 @@ public class DeliveryCardTest {
         $("[type='button'] [class=button__text]").click();
 
         $("[data-test-id='replan-notification'] [class='notification__content']").shouldBe(visible, Duration.ofSeconds(20)).shouldHave(text("У вас уже запланирована встреча на другую дату. Перепланировать?"));
-        $("[data-test-id='replan-notification'] [class=button__text]").shouldHave(text("Перепланировать")).click();
+        $("[data-test-id='replan-notification'] [class=button__text]").shouldBe(visible, Duration.ofSeconds(20)).shouldHave(text("Перепланировать")).click();
         $(".notification__content").shouldHave(text("Встреча успешно запланирована на " + date2),Duration.ofSeconds(5));
         $(withText(date2)).shouldBe(appear);
 

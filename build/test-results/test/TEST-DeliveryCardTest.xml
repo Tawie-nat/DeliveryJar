@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DeliveryCardTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-11T18:41:36" hostname="HOMEPC" time="21.511">
+<testsuite name="DeliveryCardTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-14T06:50:57" hostname="HOMEPC" time="16.011">
   <properties/>
-  <testcase name="shouldSendFormToCard()" classname="DeliveryCardTest" time="21.511"/>
+  <testcase name="shouldSendFormToCard()" classname="DeliveryCardTest" time="16.011"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[Starting ChromeDriver 98.0.4758.102 (273bf7ac8c909cde36982d27f66f3c70846a3718-refs/branch-heads/4758@{#1151}) on port 28067
+  <system-err><![CDATA[Starting ChromeDriver 98.0.4758.102 (273bf7ac8c909cde36982d27f66f3c70846a3718-refs/branch-heads/4758@{#1151}) on port 43862
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-[1647024099.575][WARNING]: This version of ChromeDriver has not been tested with Chrome version 99.
-мар. 11, 2022 9:41:40 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+[1647240660.806][WARNING]: This version of ChromeDriver has not been tested with Chrome version 99.
+мар. 14, 2022 9:51:01 AM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-Starting ChromeDriver 98.0.4758.102 (273bf7ac8c909cde36982d27f66f3c70846a3718-refs/branch-heads/4758@{#1151}) on port 3025
+Starting ChromeDriver 98.0.4758.102 (273bf7ac8c909cde36982d27f66f3c70846a3718-refs/branch-heads/4758@{#1151}) on port 22532
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-[1647024103.830][WARNING]: This version of ChromeDriver has not been tested with Chrome version 99.
-мар. 11, 2022 9:41:45 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+[1647240664.400][WARNING]: This version of ChromeDriver has not been tested with Chrome version 99.
+мар. 14, 2022 9:51:04 AM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
 ]]></system-err>
 </testsuite>
